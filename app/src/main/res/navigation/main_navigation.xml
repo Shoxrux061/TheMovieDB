@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/mainScreen">
+
+    <fragment
+        android:id="@+id/homePage"
+        android:name="uz.isytem.themoviedb.presentation.main.home.HomePage"
+        android:label="page_home"
+        tools:layout="@layout/page_home" />
+    <fragment
+        android:id="@+id/mainScreen"
+        android:name="uz.isytem.themoviedb.presentation.main.MainScreen"
+        android:label="screen_main"
+        tools:layout="@layout/screen_main" >
+        <action
+            android:id="@+id/action_mainScreen_to_homePage"
+            app:destination="@id/homePage" />
+        <action
+            android:id="@+id/action_mainScreen_to_searchPage"
+            app:destination="@id/searchPage" />
+        <action
+            android:id="@+id/action_mainScreen_to_videosPage"
+            app:destination="@id/videosPage" />
+        <action
+            android:id="@+id/action_mainScreen_to_savedPage"
+            app:destination="@id/savedPage" />
+        <action
+            android:id="@+id/action_mainScreen_to_movieDetailScreen"
+            app:destination="@id/movieDetailScreen" />
+        <action
+            android:id="@+id/action_mainScreen_to_allScreen"
+            app:destination="@id/allScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchPage"
+        android:name="uz.isytem.themoviedb.presentation.main.search.SearchPage"
+        android:label="page_search"
+        tools:layout="@layout/page_search" >
+        <action
+            android:id="@+id/action_searchPage_to_movieDetailScreen"
+            app:destination="@id/movieDetailScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/videosPage"
+        android:name="uz.isytem.themoviedb.presentation.main.videos.VideosPage"
+        android:label="page_videos"
+        tools:layout="@layout/page_videos" />
+    <fragment
+        android:id="@+id/savedPage"
+        android:name="uz.isytem.themoviedb.presentation.main.saved.SavedPage"
+        android:label="page_saved"
+        tools:layout="@layout/page_saved" />
+    <fragment
+        android:id="@+id/movieDetailScreen"
+        android:name="uz.isytem.themoviedb.presentation.detail.movie_detail.MovieDetailScreen"
+        android:label="screen_movie_detail"
+        tools:layout="@layout/screen_movie_detail" >
+        <argument
+            android:name="movie_id"
+            app:argType="integer" />
+        <argument
+            android:name="pop"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_movieDetailScreen_self"
+            app:destination="@id/movieDetailScreen" />
+        <action
+            android:id="@+id/action_movieDetailScreen_to_mainScreen"
+            app:destination="@id/mainScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/allScreen"
+        android:name="uz.isytem.themoviedb.presentation.all_sreen.AllScreen"
+        android:label="screen_all"
+        tools:layout="@layout/screen_all" >
+        <argument
+            android:name="category"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_allScreen_to_movieDetailScreen"
+            app:destination="@id/movieDetailScreen" />
+        <action
+            android:id="@+id/action_allScreen_to_mainScreen"
+            app:destination="@id/mainScreen" />
+    </fragment>
+</navigation>
